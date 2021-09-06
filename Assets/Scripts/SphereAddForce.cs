@@ -8,18 +8,20 @@ public class SphereAddForce : MonoBehaviour
     private Vector3 endMousePosition = Vector3.zero;
     private Vector3 startPosition;
     private Vector3 cameraStartPosition;
+    private Vector3 force;
 
     private Rigidbody myRigidbody = null;
 
     private MeshRenderer mr = null;
     private SphereCollider sc = null;
 
-    public float speed = 10f;
-
+    private float timeSpeed = 0f;
+    private float speed = 0f;
     private bool isMove = false;
     private bool isReset = false;
     private bool isclick = false;
     private float time = 0f;
+    private float clickTime = 0f;
 
     private void Awake()
     {
@@ -46,6 +48,7 @@ public class SphereAddForce : MonoBehaviour
         {
             startMousePosition = Input.mousePosition;
             isclick = true;
+            clickTime = Time.time;
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -59,9 +62,29 @@ public class SphereAddForce : MonoBehaviour
 
             if (Vector3.Distance(startMousePosition, endMousePosition) >= 3f)
             {
-                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 5f, 3f, 70f);
+                timeSpeed = Mathf.Clamp(1 - (Time.time - clickTime) / 2, 0f, 1f);
+                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 3f * timeSpeed, 3f, 70f);
+                force = (new Vector3(endMousePosition.x, 0f, endMousePosition.y) - new Vector3(startMousePosition.x, 0f, startMousePosition.y)).normalized;
 
-                myRigidbody.AddForce(transform.forward * -speed, ForceMode.Impulse);
+                if (-0.2f <= force.x && force.x <= 0.2f)
+                {
+                    force.x = 0f;
+                }
+                else if (-0.4f <= force.x)
+                {
+                    force.x = 0.05f;
+                }
+                else if (force.x <= 0.4f)
+                {
+                    force.x = -0.05f;
+                }
+                else
+                {
+                    force.x = force.x > 0 ? force.x - 0.35f : force.x + 0.35f;
+                }
+
+                myRigidbody.AddForce( force * -speed, ForceMode.Impulse);
+                
                 isMove = true;
                 time = Time.time;
             }
