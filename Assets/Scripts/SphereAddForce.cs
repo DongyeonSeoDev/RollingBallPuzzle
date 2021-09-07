@@ -17,7 +17,6 @@ public class SphereAddForce : MonoBehaviour
 
     private float timeSpeed = 0f;
     private float speed = 0f;
-    private bool isMove = false;
     private bool isReset = false;
     private bool isclick = false;
     private float time = 0f;
@@ -39,11 +38,6 @@ public class SphereAddForce : MonoBehaviour
             ResetPlayer();
         }
 
-        if (isMove)
-        {
-            return;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             startMousePosition = Input.mousePosition;
@@ -63,7 +57,7 @@ public class SphereAddForce : MonoBehaviour
             if (Vector3.Distance(startMousePosition, endMousePosition) >= 3f)
             {
                 timeSpeed = Mathf.Clamp(1 - (Time.time - clickTime) / 2, 0f, 1f);
-                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 3f * timeSpeed, 3f, 70f);
+                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 20f * timeSpeed, 3f, 3000f);
                 force = (new Vector3(endMousePosition.x, 0f, endMousePosition.y) - new Vector3(startMousePosition.x, 0f, startMousePosition.y)).normalized;
 
                 if (-0.2f <= force.x && force.x <= 0.2f)
@@ -85,7 +79,6 @@ public class SphereAddForce : MonoBehaviour
 
                 myRigidbody.AddForce( force * -speed, ForceMode.Impulse);
                 
-                isMove = true;
                 time = Time.time;
             }
         }
@@ -136,7 +129,6 @@ public class SphereAddForce : MonoBehaviour
         myRigidbody.angularVelocity = Vector3.zero;
 
         Camera.main.transform.position = cameraStartPosition;
-        isMove = false;
         isReset = false;
         isclick = false;
     }
