@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SphereAddForce : MonoBehaviour
 {
+    [SerializeField] private LayerMask whatIsGround;
+
     private Vector3 startMousePosition = Vector3.zero;
     private Vector3 endMousePosition = Vector3.zero;
     private Vector3 startPosition;
-    private Vector3 cameraStartPosition;
     private Vector3 force;
+    private Vector3 startCameraPosition;
 
     private Rigidbody myRigidbody = null;
 
@@ -19,7 +21,7 @@ public class SphereAddForce : MonoBehaviour
     private float speed = 0f;
     private bool isReset = false;
     private bool isclick = false;
-    private float time = 0f;
+    private bool isGround = true;
     private float clickTime = 0f;
 
     private void Awake()
@@ -28,12 +30,14 @@ public class SphereAddForce : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
         sc = GetComponent<SphereCollider>();
         startPosition = transform.position;
-        cameraStartPosition = Camera.main.transform.position;
+        startCameraPosition = Camera.main.transform.position;
     }
 
     private void Update()
     {
-        if (transform.position.y < -50 || (time != 0 && time + 10 <= Time.time))
+        isGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
+
+        if (transform.position.y < -50)
         {
             ResetPlayer();
         }
@@ -54,32 +58,13 @@ public class SphereAddForce : MonoBehaviour
 
             endMousePosition = Input.mousePosition;
 
-            if (Vector3.Distance(startMousePosition, endMousePosition) >= 3f)
+            if (Vector3.Distance(startMousePosition, endMousePosition) >= 3f && isGround)
             {
                 timeSpeed = Mathf.Clamp(1 - (Time.time - clickTime) / 2, 0f, 1f);
-                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 20f * timeSpeed, 3f, 3000f);
+                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 10f * timeSpeed, 3f, 50f);
                 force = (new Vector3(endMousePosition.x, 0f, endMousePosition.y) - new Vector3(startMousePosition.x, 0f, startMousePosition.y)).normalized;
 
-                if (-0.2f <= force.x && force.x <= 0.2f)
-                {
-                    force.x = 0f;
-                }
-                else if (-0.4f <= force.x)
-                {
-                    force.x = 0.05f;
-                }
-                else if (force.x <= 0.4f)
-                {
-                    force.x = -0.05f;
-                }
-                else
-                {
-                    force.x = force.x > 0 ? force.x - 0.35f : force.x + 0.35f;
-                }
-
                 myRigidbody.AddForce( force * -speed, ForceMode.Impulse);
-                
-                time = Time.time;
             }
         }
     }
@@ -93,6 +78,7 @@ public class SphereAddForce : MonoBehaviour
 
         mr.enabled = false;
         sc.enabled = false;
+        myRigidbody.isKinematic = true;
         ResetPlayer();
     }
 
@@ -104,11 +90,10 @@ public class SphereAddForce : MonoBehaviour
         }
 
         isReset = true;
-        time = 0;
         startMousePosition = Vector3.zero;
         endMousePosition = Vector3.zero;
 
-        Invoke("ResetStart", 3f);
+        Invoke("ResetStart", 1f);
     }
 
     private void ResetStart()
@@ -123,12 +108,17 @@ public class SphereAddForce : MonoBehaviour
             sc.enabled = true;
         }
 
+        if (myRigidbody.isKinematic)
+        {
+            myRigidbody.isKinematic = false;
+        }
+
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
         myRigidbody.velocity = Vector3.zero;
         myRigidbody.angularVelocity = Vector3.zero;
+        Camera.main.transform.position = startCameraPosition;
 
-        Camera.main.transform.position = cameraStartPosition;
         isReset = false;
         isclick = false;
     }
