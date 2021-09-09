@@ -19,6 +19,8 @@ public class SphereAddForce : MonoBehaviour
 
     private float timeSpeed = 0f;
     private float speed = 0f;
+    public int ball = 20;
+    private int puzzleCount = 0;
     private bool isReset = false;
     private bool isclick = false;
     private bool isGround = true;
@@ -31,6 +33,11 @@ public class SphereAddForce : MonoBehaviour
         sc = GetComponent<SphereCollider>();
         startPosition = transform.position;
         startCameraPosition = Camera.main.transform.position;
+    }
+
+    private void Start()
+    {
+        UIManager.SetBallText(ball.ToString("00"));
     }
 
     private void Update()
@@ -79,6 +86,15 @@ public class SphereAddForce : MonoBehaviour
         mr.enabled = false;
         sc.enabled = false;
         myRigidbody.isKinematic = true;
+
+        puzzleCount++;
+
+        if (puzzleCount >= 9)
+        {
+            UIManager.GameClear();
+            return;
+        }
+
         ResetPlayer();
     }
 
@@ -121,5 +137,13 @@ public class SphereAddForce : MonoBehaviour
 
         isReset = false;
         isclick = false;
+
+        ball--;
+        UIManager.SetBallText(ball.ToString("00"));
+
+        if (ball <= 0)
+        {
+            UIManager.GameOver();
+        }
     }
 }
