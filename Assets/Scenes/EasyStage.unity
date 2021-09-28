@@ -1968,6 +1968,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ball: 20
+  clearCount: 1
 --- !u!1 &647585465
 GameObject:
   m_ObjectHideFlags: 0

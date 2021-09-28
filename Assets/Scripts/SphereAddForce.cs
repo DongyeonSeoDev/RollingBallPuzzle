@@ -20,6 +20,7 @@ public class SphereAddForce : MonoBehaviour
     private float timeSpeed = 0f;
     private float speed = 0f;
     public int ball = 20;
+    public int clearCount = 9;
     private int puzzleCount = 0;
     private bool isReset = false;
     private bool isclick = false;
@@ -89,7 +90,7 @@ public class SphereAddForce : MonoBehaviour
 
         puzzleCount++;
 
-        if (puzzleCount >= 9)
+        if (puzzleCount >= clearCount)
         {
             UIManager.GameClear();
             return;
