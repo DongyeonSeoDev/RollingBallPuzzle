@@ -45,7 +45,7 @@ public class SphereAddForce : MonoBehaviour
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
 
-        if (transform.position.y < -50)
+        if (transform.position.y < -10)
         {
             ResetPlayer();
         }
@@ -69,7 +69,7 @@ public class SphereAddForce : MonoBehaviour
             if (Vector3.Distance(startMousePosition, endMousePosition) >= 3f && isGround)
             {
                 timeSpeed = Mathf.Clamp(1 - (Time.time - clickTime) / 2, 0f, 1f);
-                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 10f * timeSpeed, 3f, 50f);
+                speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 20f * timeSpeed, 3f, 50f);
                 force = (new Vector3(endMousePosition.x, 0f, endMousePosition.y) - new Vector3(startMousePosition.x, 0f, startMousePosition.y)).normalized;
 
                 myRigidbody.AddForce( force * -speed, ForceMode.Impulse);
