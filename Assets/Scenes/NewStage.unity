@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c37868edd5733e84f973f940bcd9b1f9, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -3857,6 +3857,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ball: 20
+  clearCount: 9
 --- !u!1 &612884638
 GameObject:
   m_ObjectHideFlags: 0

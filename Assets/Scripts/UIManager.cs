@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -22,6 +23,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResetScene();
+        }
+    }
+
     public static void SetBallText(string text)
     {
         instance.ballText.text = text;
@@ -30,12 +39,17 @@ public class UIManager : MonoBehaviour
     public static void GameOver()
     {
         instance.gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
+        instance.Invoke("ResetScene", 3f);
     }
 
     public static void GameClear()
     {
         instance.gameClearPanel.SetActive(true);
-        Time.timeScale = 0f;
+        instance.Invoke("ResetScene", 3f);
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
