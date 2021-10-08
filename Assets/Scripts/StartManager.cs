@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 [System.Serializable]
 public class Stage
@@ -15,6 +16,9 @@ public class StartManager : MonoBehaviour
 {
     public Stage[] stages;
 
+    public Button ballChangeButton;
+    public CanvasGroup ballChangeCanvasGroup;
+
     private void Awake()
     {
         foreach (Stage stage in stages)
@@ -24,6 +28,14 @@ public class StartManager : MonoBehaviour
                 SceneManager.LoadScene(stage.stageName);
             });
         }
+
+        ballChangeButton.onClick.AddListener(() =>
+        {
+            DOTween.To(() => ballChangeCanvasGroup.alpha, x => ballChangeCanvasGroup.alpha = x, 1f, 0.5f);
+
+            ballChangeCanvasGroup.interactable = true;
+            ballChangeCanvasGroup.blocksRaycasts = true;
+        });
     }
 
     private void Update()

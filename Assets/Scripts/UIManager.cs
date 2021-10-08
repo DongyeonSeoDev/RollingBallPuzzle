@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
 
     public void ResetScene()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("StartScene");
     }
 }
