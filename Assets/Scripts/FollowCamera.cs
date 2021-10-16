@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject followObject;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float basicsSpeed;
 
+    private GameObject followObject;
+
     private float speed = 0f;
     private float distance = 0f;
+
+    private void Start()
+    {
+        followObject = GameManager.Instance.ball;
+    }
 
     private void FixedUpdate()
     {

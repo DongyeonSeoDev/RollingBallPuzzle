@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 117525426}
   - component: {fileID: 117525425}
   m_Layer: 5
-  m_Name: Button2
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99058e9032fa17547bc8427d252914b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad9d65578d9bbb5438d51872b6c17f7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3087,6 +3087,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944042102}
   m_CullTransparentMesh: 1
+--- !u!1 &973277947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973277948}
+  - component: {fileID: 973277949}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &973277948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973277947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973277949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973277947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6111ef2118c2f7144bbcd645e219e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balls:
+  - {fileID: 4014358710746781282, guid: 075a692bc1dca1f4aad8c574862a31b3, type: 3}
+  - {fileID: 578093101789410953, guid: f77ab2b48e1842e40b6aaa1712f00a69, type: 3}
+  - {fileID: 4668518067148394629, guid: f62ec31b0878b1d40a24947a5e5353c6, type: 3}
+  ballPositions:
+  - {x: 0, y: 5.51, z: 25.77}
+  - {x: 0, y: 5.51, z: 25.77}
+  - {x: 0, y: 5.51, z: 131}
+  - {x: 0, y: 5.51, z: 25.77}
+  - {x: 0, y: 5.51, z: 25.77}
+  limitBall: 1400000014000000140000001600000019000000
+  clearCount: 0100000009000000090000000b0000000a000000
+  selectionBallNumber: 0
+  selectionStageNumber: 0
+  ball: {fileID: 0}
 --- !u!1 &978791667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,7 +3663,7 @@ GameObject:
   - component: {fileID: 1089585272}
   - component: {fileID: 1089585271}
   m_Layer: 5
-  m_Name: Button3
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3687,15 +3745,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 99058e9032fa17547bc8427d252914b6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4482,7 +4540,7 @@ GameObject:
   - component: {fileID: 1484955088}
   - component: {fileID: 1484955087}
   m_Layer: 5
-  m_Name: Button4
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4602,7 +4660,7 @@ GameObject:
   - component: {fileID: 1625484063}
   - component: {fileID: 1625484062}
   m_Layer: 5
-  m_Name: Button1
+  m_Name: Button0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4691,7 +4749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ad9d65578d9bbb5438d51872b6c17f7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bb5436b948d7114182af6a98a7e9bc9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5219,7 +5277,7 @@ GameObject:
   - component: {fileID: 1805651743}
   - component: {fileID: 1805651742}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: StartManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5249,6 +5307,10 @@ MonoBehaviour:
   - stageButton: {fileID: 2109603522}
     stageName: Stage5
   ballChangeButton: {fileID: 583385080}
+  ballButtons:
+  - {fileID: 1625484062}
+  - {fileID: 117525425}
+  - {fileID: 1089585271}
   ballChangeCanvasGroup: {fileID: 1890225096}
 --- !u!4 &1805651743
 Transform:
@@ -5366,7 +5428,7 @@ GameObject:
   - component: {fileID: 1897233319}
   - component: {fileID: 1897233318}
   m_Layer: 5
-  m_Name: Button5
+  m_Name: Button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5884,7 +5946,7 @@ GameObject:
   - component: {fileID: 2089928224}
   - component: {fileID: 2089928223}
   m_Layer: 5
-  m_Name: Button6
+  m_Name: Button5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,9 +8,12 @@ public class CheckScript : MonoBehaviour
 
     private SphereAddForce sphere = null;
 
-    private void Awake()
+    private void Start()
     {
-        sphere = FindObjectOfType<SphereAddForce>();
+        sphere = GameManager.Instance.ball.GetComponent<SphereAddForce>();
+
+        sphere.ball = GameManager.Instance.limitBall[GameManager.Instance.selectionStageNumber];
+        sphere.clearCount = GameManager.Instance.clearCount[GameManager.Instance.selectionStageNumber];
     }
 
     private void OnTriggerEnter(Collider other)

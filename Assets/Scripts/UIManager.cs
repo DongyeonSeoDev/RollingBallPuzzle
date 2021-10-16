@@ -17,11 +17,14 @@ public class UIManager : MonoBehaviour
         if (instance != null)
         {
             Debug.Log("instance가 이미 있습니다.");
+            Destroy(this);
+
+            return;
         }
-        else
-        {
-            instance = this;
-        }
+
+        instance = this;
+
+        GameManager.Instance.GameStart();
     }
 
     private void Update()
