@@ -96,10 +96,10 @@ public class SphereAddForce : MonoBehaviour
             return;
         }
 
-        ResetPlayer();
+        ResetPlayer(1f);
     }
 
-    public void ResetPlayer()
+    public void ResetPlayer(float delay = 0f)
     {
         if (isReset)
         {
@@ -110,7 +110,14 @@ public class SphereAddForce : MonoBehaviour
         startMousePosition = Vector3.zero;
         endMousePosition = Vector3.zero;
 
-        Invoke("ResetStart", 1f);
+        if (delay <= 0)
+        {
+            ResetStart();
+        }
+        else
+        {
+            Invoke("ResetStart", delay);
+        }
     }
 
     private void ResetStart()
