@@ -1,22 +1,22 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class MovePuzzle : MonoBehaviour
+public class Move : MonoBehaviour
 {
-    [SerializeField] private Vector3[] nextPositions = null;
-    [SerializeField] private float[] speeds = null;
+    [SerializeField] protected Vector3[] nextPositions = null;
+    [SerializeField] protected float[] speeds = null;
 
-    private bool isMove = false;
-    private bool isPause = false;
-    private int currentPosition = 0;
+    protected bool isMove = false;
+    protected bool isPause = false;
+    protected int currentPosition = 0;
 
-    private void Start()
+    protected virtual void Start()
     {
         transform.DOMove(nextPositions[currentPosition], 0.01f);
         transform.position = nextPositions[currentPosition];
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!isMove && !isPause)
         {

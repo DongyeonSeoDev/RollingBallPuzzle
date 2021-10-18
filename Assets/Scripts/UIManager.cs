@@ -8,7 +8,10 @@ using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
+
     public Text ballText = null;
+    public Button resetButton = null;
+
     public GameObject gameOverPanel = null;
     public GameObject gameClearPanel = null;
 
@@ -25,6 +28,14 @@ public class UIManager : MonoBehaviour
         instance = this;
 
         GameManager.Instance.GameStart();
+    }
+
+    private void Start()
+    {
+        resetButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.BallOut();
+        });
     }
 
     private void Update()

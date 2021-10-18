@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3398941308878566816}
-  - component: {fileID: 7554921000093971619}
+  - component: {fileID: 7272046749113637620}
   m_Layer: 0
   m_Name: MovePuzzle
   m_TagString: Untagged
@@ -286,7 +286,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7554921000093971619
+--- !u!114 &7272046749113637620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5494427812833761394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58bd8238758497047803649b64e8dfe3, type: 3}
+  m_Script: {fileID: 11500000, guid: 085ec1a40f70a44439e926683b00922a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextPositions: []

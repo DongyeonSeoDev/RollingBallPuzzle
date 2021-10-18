@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject ball;
 
+    private SphereAddForce sphereAddForce;
+
     private void Awake()
     {
         if (instance != null)
@@ -61,5 +63,11 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         ball = Instantiate(balls[selectionBallNumber], ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
+        sphereAddForce = ball.GetComponent<SphereAddForce>();
+    }
+
+    public void BallOut()
+    {
+        sphereAddForce.ResetPlayer();
     }
 }
