@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OutWall : MonoBehaviour
+public class Out : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
