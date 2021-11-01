@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBall : MonoBehaviour
+public class SpawnBall : Pooling<ObstacleBall>
 {
     [SerializeField] private GameObject spawnBall = null;
     [SerializeField] private Vector3 spawnPosition = Vector3.zero;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(StartSpawnBall());
     }
 
@@ -16,9 +17,11 @@ public class SpawnBall : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
-            Instantiate(spawnBall, spawnPosition, Quaternion.identity);
+            var ball = GetPool();
+
+            ball.ResetObject(spawnPosition);
         }
     }
 }
