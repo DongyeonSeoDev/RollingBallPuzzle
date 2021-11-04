@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnBall : Pooling<ObstacleBall>
 {
-    [SerializeField] private GameObject spawnBall = null;
     [SerializeField] private Vector3 spawnPosition = Vector3.zero;
 
     protected override void Start()

@@ -2517,10 +2517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed4c058c85783541b5d7777eeabed50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObject: {fileID: -8389148921177301990, guid: 0263878aee337b94e94afcd2a8bafddf, type: 3}
+  poolObject: {fileID: 8577223341344057802, guid: 7c662616b12590345832125e285903c2, type: 3}
   parent: {fileID: 491127855}
   count: 30
-  spawnBall: {fileID: 1974943654044647011, guid: 0263878aee337b94e94afcd2a8bafddf, type: 3}
   spawnPosition: {x: 0, y: 15, z: 10}
 --- !u!1 &491195641
 GameObject:
