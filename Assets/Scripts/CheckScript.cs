@@ -14,6 +14,8 @@ public class CheckScript : MonoBehaviour
 
         sphere.ball = GameManager.Instance.limitBall[GameManager.Instance.selectionStageNumber];
         sphere.clearCount = GameManager.Instance.clearCount[GameManager.Instance.selectionStageNumber];
+
+        UIManager.SetBallText(sphere.ball.ToString("00"));
     }
 
     private void OnTriggerEnter(Collider other)

@@ -36,11 +36,6 @@ public class SphereAddForce : MonoBehaviour
         startCameraPosition = Camera.main.transform.position;
     }
 
-    private void Start()
-    {
-        UIManager.SetBallText(ball.ToString("00"));
-    }
-
     private void Update()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
