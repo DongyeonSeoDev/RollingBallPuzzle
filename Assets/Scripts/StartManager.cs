@@ -33,6 +33,7 @@ public class StartManager : MonoBehaviour
             {
                 GameManager.Instance.selectionStageNumber = num;
                 SceneManager.LoadScene(stages[num].stageName);
+                SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
         }
 
