@@ -52,6 +52,8 @@ public class StartManager : MonoBehaviour
 
                 GameManager.Instance.selectionBallNumber = num;
 
+                BallUIManager.Instance.uiImage.sprite = BallUIManager.Instance.ballSprites[num];
+
                 DOTween.To(() => ballChangeCanvasGroup.alpha, x => ballChangeCanvasGroup.alpha = x, 0f, 0.5f).OnComplete(() =>
                 {
                     ballChangeCanvasGroup.interactable = false;
