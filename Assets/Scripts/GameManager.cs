@@ -16,6 +16,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector]
     public GameObject ball;
 
+    public bool[] stagePlay;
+
     private SphereAddForce sphereAddForce;
 
     protected override void Awake()
@@ -40,5 +42,15 @@ public class GameManager : Singleton<GameManager>
     public void BallOut()
     {
         sphereAddForce.ResetPlayer();
+    }
+
+    public static void GameClear()
+    {
+        UIManager.GameClear();
+
+        if (Instance.selectionStageNumber < Instance.stagePlay.Length - 1)
+        {
+            Instance.stagePlay[Instance.selectionStageNumber + 1] = true;
+        }
     }
 }

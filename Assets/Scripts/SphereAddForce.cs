@@ -87,7 +87,7 @@ public class SphereAddForce : MonoBehaviour
 
         if (puzzleCount >= clearCount)
         {
-            UIManager.GameClear();
+            GameManager.GameClear();
             return;
         }
 

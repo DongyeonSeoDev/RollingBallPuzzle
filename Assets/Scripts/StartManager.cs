@@ -35,6 +35,11 @@ public class StartManager : MonoBehaviour
                 SceneManager.LoadScene(stages[num].stageName);
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
+
+            if (GameManager.Instance.stagePlay[num])
+            {
+                stages[num].stageButton.interactable = true;
+            }
         }
 
         for (int i = 0; i < ballButtons.Length; i++)
