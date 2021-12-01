@@ -5,6 +5,9 @@ using UnityEngine;
 public class SpawnBall : Pooling<ObstacleBall>
 {
     [SerializeField] private Vector3 spawnPosition = Vector3.zero;
+    [SerializeField] private float speed = 0.5f;
+    [SerializeField] private float powerY = 0f;
+    [SerializeField] private float powerZ = -50f;
 
     protected override void Start()
     {
@@ -16,11 +19,11 @@ public class SpawnBall : Pooling<ObstacleBall>
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(speed);
 
             var ball = GetPool();
 
-            ball.ResetObject(spawnPosition);
+            ball.ResetObject(spawnPosition, powerY, powerZ);
         }
     }
 }

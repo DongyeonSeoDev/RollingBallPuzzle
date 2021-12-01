@@ -12,8 +12,16 @@ public class CheckScript : MonoBehaviour
     {
         sphere = GameManager.Instance.ball.GetComponent<SphereAddForce>();
 
-        sphere.ball = GameManager.Instance.limitBall[GameManager.Instance.selectionStageNumber];
-        sphere.clearCount = GameManager.Instance.clearCount[GameManager.Instance.selectionStageNumber];
+        if (GameManager.Instance.isAddBallStage)
+        {
+            sphere.ball = GameManager.Instance.addBallStageLimitBall[GameManager.Instance.selectionStageNumber];
+            sphere.clearCount = GameManager.Instance.addBallStageClearCount[GameManager.Instance.selectionStageNumber];
+        }
+        else
+        {
+            sphere.ball = GameManager.Instance.limitBall[GameManager.Instance.selectionStageNumber];
+            sphere.clearCount = GameManager.Instance.clearCount[GameManager.Instance.selectionStageNumber];
+        }
 
         UIManager.SetBallText(sphere.ball.ToString("00"));
     }

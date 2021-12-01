@@ -18,6 +18,15 @@ public class GameManager : Singleton<GameManager>
 
     public bool[] stagePlay;
 
+    [SerializeField] private Vector3[] addBallStageStartPositions = null;
+
+    public int[] addBallStageLimitBall = null;
+    public int[] addBallStageClearCount = null;
+
+    public bool[] addBallStagePlay;
+
+    public bool isAddBallStage = false;
+
     private SphereAddForce sphereAddForce;
 
     protected override void Awake()
@@ -35,7 +44,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameStart()
     {
-        ball = Instantiate(balls[selectionBallNumber], ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
+        ball = Instantiate(balls[selectionBallNumber], isAddBallStage ? addBallStageStartPositions[selectionStageNumber] : ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
         sphereAddForce = ball.GetComponent<SphereAddForce>();
     }
 
@@ -48,9 +57,19 @@ public class GameManager : Singleton<GameManager>
     {
         UIManager.GameClear();
 
-        if (Instance.selectionStageNumber < Instance.stagePlay.Length - 1)
+        if (Instance.isAddBallStage)
         {
-            Instance.stagePlay[Instance.selectionStageNumber + 1] = true;
+            if (Instance.selectionStageNumber < Instance.addBallStagePlay.Length - 1)
+            {
+                Instance.addBallStagePlay[Instance.selectionStageNumber + 1] = true;
+            }
+        }
+        else
+        {
+            if (Instance.selectionStageNumber < Instance.stagePlay.Length - 1)
+            {
+                Instance.stagePlay[Instance.selectionStageNumber + 1] = true;
+            }
         }
     }
 }

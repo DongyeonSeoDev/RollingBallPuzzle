@@ -15,6 +15,7 @@ public class Stage
 public class StartManager : MonoBehaviour
 {
     public Stage[] stages;
+    public Stage[] addBallStages;
 
     public Button ballChangeButton;
     public Button[] ballButtons;
@@ -32,6 +33,8 @@ public class StartManager : MonoBehaviour
             stages[num].stageButton.onClick.AddListener(() =>
             {
                 GameManager.Instance.selectionStageNumber = num;
+                GameManager.Instance.isAddBallStage = false;
+
                 SceneManager.LoadScene(stages[num].stageName);
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
@@ -39,6 +42,25 @@ public class StartManager : MonoBehaviour
             if (GameManager.Instance.stagePlay[num])
             {
                 stages[num].stageButton.interactable = true;
+            }
+        }
+
+        for (int i = 0; i < addBallStages.Length; i++)
+        {
+            int num = i;
+
+            addBallStages[num].stageButton.onClick.AddListener(() =>
+            {
+                GameManager.Instance.selectionStageNumber = num;
+                GameManager.Instance.isAddBallStage = true;
+
+                SceneManager.LoadScene(addBallStages[num].stageName);
+                SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+            });
+
+            if (GameManager.Instance.addBallStagePlay[num])
+            {
+                addBallStages[num].stageButton.interactable = true;
             }
         }
 

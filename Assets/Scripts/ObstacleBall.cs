@@ -30,7 +30,7 @@ public class ObstacleBall : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ResetObject(Vector3 resetPosition)
+    public void ResetObject(Vector3 resetPosition, float powerY, float powerZ)
     {
         gameObject.SetActive(true);
 
@@ -42,11 +42,11 @@ public class ObstacleBall : MonoBehaviour
 
         currentTime = 0f;
 
-        Move();
+        Move(powerY, powerZ);
     }
 
-    private void Move()
+    private void Move(float powerY, float powerZ)
     {
-        rb.AddForce(Random.Range(-70f, 70f), 0f, -50f, ForceMode.Impulse);
+        rb.AddForce(Random.Range(-70f, 70f), powerY, powerZ, ForceMode.Impulse);
     }
 }
