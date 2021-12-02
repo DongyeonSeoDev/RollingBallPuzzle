@@ -2235,7 +2235,7 @@ MonoBehaviour:
   - {x: 0, y: 6.5, z: 30}
   - {x: -12, y: 6, z: 30}
   - {x: 0, y: 12.5, z: 30}
-  addBallStageLimitBall: 02000000050000001400000024000000
+  addBallStageLimitBall: 020000000a0000001400000024000000
   addBallStageClearCount: 01000000040000000800000012000000
   addBallStagePlay: 01000000
   isAddBallStage: 0

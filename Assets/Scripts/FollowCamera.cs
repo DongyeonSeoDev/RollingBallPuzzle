@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class FollowCamera : MonoBehaviour
 
     private float speed = 0f;
     private float distance = 0f;
+
+    private void Awake()
+    {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogWarning("GameManager가 없습니다.");
+            Debug.LogWarning("게임은 Start Scene에서 시작해야 합니다.");
+
+            SceneManager.LoadScene("StartScene");
+        }
+    }
 
     private void Start()
     {
