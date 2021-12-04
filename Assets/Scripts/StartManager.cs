@@ -39,10 +39,7 @@ public class StartManager : MonoBehaviour
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
 
-            if (GameManager.Instance.stagePlay[num])
-            {
-                stages[num].stageButton.interactable = true;
-            }
+            stages[num].stageButton.interactable = GameManager.Instance.stagePlay[num];
         }
 
         for (int i = 0; i < addBallStages.Length; i++)
@@ -58,10 +55,7 @@ public class StartManager : MonoBehaviour
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
 
-            if (GameManager.Instance.addBallStagePlay[num])
-            {
-                addBallStages[num].stageButton.interactable = true;
-            }
+            addBallStages[num].stageButton.interactable = GameManager.Instance.addBallStagePlay[num];
         }
 
         for (int i = 0; i < ballButtons.Length; i++)
@@ -87,6 +81,8 @@ public class StartManager : MonoBehaviour
                     ballChangeCanvasGroup.blocksRaycasts = false;
                 });
             });
+
+            ballButtons[num].interactable = GameManager.Instance.selectBall[num];
         }
 
         ballChangeButton.onClick.AddListener(() =>

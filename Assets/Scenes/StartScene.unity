@@ -2239,6 +2239,7 @@ MonoBehaviour:
   addBallStageClearCount: 01000000040000000800000012000000
   addBallStagePlay: 01000000
   isAddBallStage: 0
+  selectBall: 01000000
 --- !u!1 &1026308966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,7 +2564,7 @@ GameObject:
   - component: {fileID: 1089585272}
   - component: {fileID: 1089585271}
   m_Layer: 5
-  m_Name: Button2
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2628,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1089585272}
   m_OnClick:
     m_PersistentCalls:
@@ -3322,7 +3323,7 @@ GameObject:
   - component: {fileID: 1484955088}
   - component: {fileID: 1484955087}
   m_Layer: 5
-  m_Name: Button3
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,7 +3387,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1484955088}
   m_OnClick:
     m_PersistentCalls:
@@ -3620,7 +3621,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1625484063}
   m_OnClick:
     m_PersistentCalls:
@@ -4972,7 +4973,7 @@ GameObject:
   - component: {fileID: 1897233319}
   - component: {fileID: 1897233318}
   m_Layer: 5
-  m_Name: Button4
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5036,7 +5037,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1897233319}
   m_OnClick:
     m_PersistentCalls:
