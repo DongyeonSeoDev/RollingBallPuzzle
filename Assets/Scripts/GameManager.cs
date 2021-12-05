@@ -31,6 +31,8 @@ public class GameManager : Singleton<GameManager>
 
     private SphereAddForce sphereAddForce;
 
+    public bool isMute = false;
+
     protected override void Awake()
     {
         if (Instance != null)

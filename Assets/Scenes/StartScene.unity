@@ -382,7 +382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &79597695
 MonoBehaviour:
@@ -411,6 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137165231}
   - component: {fileID: 137165230}
+  - component: {fileID: 137165232}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -526,8 +527,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &137165232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137165229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807d20452b776db4e8860a14df70ab80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &163903581 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3711057574170316498, guid: 270b23d22df13ae4daf9feac8403c2bc, type: 3}
@@ -1901,7 +1914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -59.499996, y: -0.000018752642}
+  m_AnchoredPosition: {x: -59.499996, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &721240782
@@ -2164,82 +2177,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &973277947
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 973277948}
-  - component: {fileID: 973277949}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &973277948
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973277947}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &973277949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973277947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6111ef2118c2f7144bbcd645e219e67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDestroy: 0
-  balls:
-  - {fileID: 4014358710746781282, guid: 075a692bc1dca1f4aad8c574862a31b3, type: 3}
-  - {fileID: 4668518067148394629, guid: f62ec31b0878b1d40a24947a5e5353c6, type: 3}
-  - {fileID: 5761044889585073269, guid: c5b733940e60f76479b70ab97d54ac90, type: 3}
-  - {fileID: 6918407462288435036, guid: 153f03ee4f123b44883b1608092b500c, type: 3}
-  ballPositions:
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 25.77}
-  - {x: 0, y: 5.51, z: 131}
-  - {x: 0, y: 5.51, z: 30}
-  - {x: 0, y: 5.51, z: 30}
-  - {x: 0, y: 12.5, z: 30}
-  limitBall: 050000000a0000001400000014000000190000001900000019000000190000001900000019000000
-  clearCount: 010000000100000004000000040000000900000009000000090000000b0000000a00000009000000
-  selectionBallNumber: 0
-  selectionStageNumber: 0
-  ball: {fileID: 0}
-  stagePlay: 01000000000000000000
-  addBallStageStartPositions:
-  - {x: 0, y: 5, z: 90}
-  - {x: 0, y: 6.5, z: 30}
-  - {x: -12, y: 6, z: 30}
-  - {x: 0, y: 12.5, z: 30}
-  addBallStageLimitBall: 020000000a0000001400000024000000
-  addBallStageClearCount: 01000000040000000800000012000000
-  addBallStagePlay: 01000000
-  isAddBallStage: 0
-  selectBall: 01000000
 --- !u!1 &1026308966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,6 +4371,8 @@ MonoBehaviour:
   - {fileID: 1484955087}
   - {fileID: 1897233318}
   ballChangeCanvasGroup: {fileID: 1890225096}
+  stageSelectPosition: {fileID: 721240781}
+  limitPosition: 700
 --- !u!4 &1805651743
 Transform:
   m_ObjectHideFlags: 0

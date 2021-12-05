@@ -18,9 +18,11 @@ public class FollowCamera : MonoBehaviour
         if (GameManager.Instance == null)
         {
             Debug.LogWarning("GameManager가 없습니다.");
-            Debug.LogWarning("게임은 Start Scene에서 시작해야 합니다.");
+            Debug.LogWarning("게임은 StartGameScene에서 시작해야 합니다.");
 
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("StartGameScene");
+
+            return;
         }
     }
 

@@ -24,8 +24,24 @@ public class StartManager : MonoBehaviour
 
     private bool isBallChange = false;
 
+    private int nextStageNumber = 0;
+
+    private Tween currentTween;
+    public RectTransform stageSelectPosition;
+    public float limitPosition;
+
     private void Awake()
     {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogWarning("GameManager가 없습니다.");
+            Debug.LogWarning("게임은 StartGameScene에서 시작해야 합니다.");
+
+            SceneManager.LoadScene("StartGameScene");
+
+            return;
+        }
+
         for (int i = 0; i < stages.Length; i++)
         {
             int num = i;
@@ -35,12 +51,25 @@ public class StartManager : MonoBehaviour
                 GameManager.Instance.selectionStageNumber = num;
                 GameManager.Instance.isAddBallStage = false;
 
+                if (currentTween != null && currentTween.IsActive())
+                {
+                    currentTween.Complete();
+                    currentTween.Kill();
+                }
+
                 SceneManager.LoadScene(stages[num].stageName);
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
             });
 
             stages[num].stageButton.interactable = GameManager.Instance.stagePlay[num];
+
+            if (GameManager.Instance.stagePlay[num])
+            {
+                nextStageNumber = num;
+            }
         }
+
+        currentTween = stageSelectPosition.DOAnchorPosY(Mathf.Clamp((nextStageNumber + (nextStageNumber % 2 == 0 ? 0 : -1)) * 350f, 0, limitPosition), 1f);
 
         for (int i = 0; i < addBallStages.Length; i++)
         {
@@ -50,6 +79,12 @@ public class StartManager : MonoBehaviour
             {
                 GameManager.Instance.selectionStageNumber = num;
                 GameManager.Instance.isAddBallStage = true;
+
+                if (currentTween != null && currentTween.IsActive())
+                {
+                    currentTween.Complete();
+                    currentTween.Kill();
+                }
 
                 SceneManager.LoadScene(addBallStages[num].stageName);
                 SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
