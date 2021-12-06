@@ -368,7 +368,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2bb5436b948d7114182af6a98a7e9bc9, type: 3}
   - {fileID: 21300000, guid: 99058e9032fa17547bc8427d252914b6, type: 3}
   - {fileID: 21300000, guid: bba9bd9ebf0adcc46985b655047a16da, type: 3}
-  - {fileID: 21300000, guid: 79b3e2cbc5a98b143899b8f573951f44, type: 3}
+  - {fileID: 21300000, guid: b4d2bb2519c79e148996781f261d4d0f, type: 3}
   uiImage: {fileID: 1753078471}
 --- !u!4 &79597694
 Transform:
@@ -4397,7 +4397,7 @@ PrefabInstance:
     - target: {fileID: 2241262228323915191, guid: 0422b2f4721161f458aa66f4428716bf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 79b3e2cbc5a98b143899b8f573951f44, type: 3}
+      objectReference: {fileID: 21300000, guid: b4d2bb2519c79e148996781f261d4d0f, type: 3}
     - target: {fileID: 3711057574170316499, guid: 0422b2f4721161f458aa66f4428716bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79b3e2cbc5a98b143899b8f573951f44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4d2bb2519c79e148996781f261d4d0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

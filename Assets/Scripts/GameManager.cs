@@ -59,6 +59,11 @@ public class GameManager : Singleton<GameManager>
 
     public static void GameClear()
     {
+        Instance.Invoke("GameClearProcess", 1f);
+    }
+
+    private void GameClearProcess()
+    {
         UIManager.GameClear();
 
         if (Instance.selectionStageNumber < 0)

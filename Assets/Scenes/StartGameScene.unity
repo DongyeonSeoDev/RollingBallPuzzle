@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a76d6b43e70b9cc449af6052c9cbd3ce, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -723,7 +723,7 @@ MonoBehaviour:
   - {x: -12, y: 6, z: 30}
   - {x: 0, y: 12.5, z: 30}
   addBallStageLimitBall: 020000000a0000001400000024000000
-  addBallStageClearCount: 01000000040000000800000012000000
+  addBallStageClearCount: 01000000040000000900000012000000
   addBallStagePlay: 01000000
   isAddBallStage: 0
   selectBall: 01000000
