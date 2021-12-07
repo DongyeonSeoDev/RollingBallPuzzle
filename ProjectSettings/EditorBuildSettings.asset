@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: ac210bd936eb0f34da69f14edaba9bd4
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 82ff8db5538a82643a710dd7d92f4f9a
+  - enabled: 1
     path: Assets/Scenes/UIScene.unity
     guid: 7e63bdb49f43ad64084a3b9a9b9dfff7
   - enabled: 1
@@ -45,6 +48,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StageScene/Stage10.unity
     guid: 94468b603c9b6c64fadae2ac5cc4fbab
   - enabled: 1
+    path: Assets/Scenes/StageScene/Stage11.unity
+    guid: 32280c0d2c1e22140acadedfa9adcc34
+  - enabled: 1
+    path: Assets/Scenes/StageScene/Stage12.unity
+    guid: 9ca12f7038efee84bbb1f13008495be2
+  - enabled: 1
     path: Assets/Scenes/AddBallScene/AddBallStage1.unity
     guid: 1496017770a3c7b4586fc11deff5d2cc
   - enabled: 1
@@ -56,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AddBallScene/AddBallStage4.unity
     guid: 552502bcea7c7814f85b1df000d0d575
+  - enabled: 1
+    path: Assets/Scenes/AddBallScene/AddBallStage5.unity
+    guid: 93144d6528980194cb526b0899c575a5
   m_configObjects: {}

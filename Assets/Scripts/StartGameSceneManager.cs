@@ -5,12 +5,10 @@ using UnityEngine.UI;
 public class StartGameSceneManager : MonoBehaviour
 {
     public Button startButton = null;
-    public Button soundButton = null;
+    public Button settingButton = null;
 
-    public Sprite[] soundButtonSprites = null;
-
-    private bool isMute;
-
+    public GameObject settingPanel = null;
+    
     private void Awake()
     {
         startButton.onClick.AddListener(() =>
@@ -18,12 +16,9 @@ public class StartGameSceneManager : MonoBehaviour
             SceneManager.LoadScene("StartScene");
         });
 
-        soundButton.onClick.AddListener(() =>
+        settingButton.onClick.AddListener(() =>
         {
-            isMute = !GameManager.Instance.isMute;
-            soundButton.image.sprite = isMute ? soundButtonSprites[0] : soundButtonSprites[1];
-
-            GameManager.Instance.isMute = isMute;
+            settingPanel.SetActive(!settingPanel.activeSelf);
         });
     }
 }

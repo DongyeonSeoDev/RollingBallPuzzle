@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SphereAddForce : MonoBehaviour
 {
@@ -40,19 +41,19 @@ public class SphereAddForce : MonoBehaviour
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, 1f, whatIsGround);
 
-        if (transform.position.y < -10)
+        if (transform.position.y < -30f)
         {
             ResetPlayer();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             startMousePosition = Input.mousePosition;
             isclick = true;
             clickTime = Time.time;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             if (!isclick)
             {

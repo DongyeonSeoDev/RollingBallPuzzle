@@ -30,6 +30,10 @@ public class StartManager : MonoBehaviour
     public RectTransform stageSelectPosition;
     public float limitPosition;
 
+    public Button settingButton = null;
+
+    public GameObject settingPanel = null;
+
     private void Awake()
     {
         if (GameManager.Instance == null)
@@ -133,6 +137,11 @@ public class StartManager : MonoBehaviour
 
             ballChangeCanvasGroup.interactable = true;
             ballChangeCanvasGroup.blocksRaycasts = true;
+        });
+
+        settingButton.onClick.AddListener(() =>
+        {
+            settingPanel.SetActive(!settingPanel.activeSelf);
         });
     }
 

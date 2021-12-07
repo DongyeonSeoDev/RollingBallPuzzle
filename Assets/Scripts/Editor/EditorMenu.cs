@@ -22,6 +22,12 @@ public class EditorMenu : MonoBehaviour
         EditorSceneManager.OpenScene("Assets/Scenes/StartGameScene.unity");
     }
 
+    [MenuItem("RollingBallScene/Scenes/Tutorial")]
+    static void EditorMenu_LoadTutorial()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/Tutorial.unity");
+    }
+
     [MenuItem("RollingBallScene/StageScenes/Stage1")]
     static void EditorMenu_LoadStage1()
     {
@@ -76,6 +82,24 @@ public class EditorMenu : MonoBehaviour
         EditorSceneManager.OpenScene("Assets/Scenes/StageScene/Stage9.unity");
     }
 
+    [MenuItem("RollingBallScene/StageScenes/Stage10")]
+    static void EditorMenu_LoadStage10()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/StageScene/Stage10.unity");
+    }
+
+    [MenuItem("RollingBallScene/StageScenes/Stage11")]
+    static void EditorMenu_LoadStage11()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/StageScene/Stage11.unity");
+    }
+
+    [MenuItem("RollingBallScene/StageScenes/Stage12")]
+    static void EditorMenu_LoadStage12()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/StageScene/Stage12.unity");
+    }
+
     [MenuItem("RollingBallScene/AddBallStageScenes/AddBallStage1")]
     static void EditorMenu_LoadAddBallStage1()
     {
@@ -98,5 +122,11 @@ public class EditorMenu : MonoBehaviour
     static void EditorMenu_LoadAddBallStage4()
     {
         EditorSceneManager.OpenScene("Assets/Scenes/AddBallScene/AddBallStage4.unity");
+    }
+
+    [MenuItem("RollingBallScene/AddBallStageScenes/AddBallStage5")]
+    static void EditorMenu_LoadAddBallStage5()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/AddBallScene/AddBallStage5.unity");
     }
 }

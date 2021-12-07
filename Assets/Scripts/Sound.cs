@@ -13,9 +13,18 @@ public class Sound : MonoBehaviour
 
     private void Start()
     {
+        SoundVolumeChange();
+    }
+
+    public void SoundVolumeChange()
+    {
         if (GameManager.Instance.isMute)
         {
-            sound.Stop();
+            sound.volume = 0f;
+        }
+        else
+        {
+            sound.volume = 1f;
         }
     }
 }
