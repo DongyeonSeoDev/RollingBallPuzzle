@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     public static UIManager instance = null;
 
     public Text ballText = null;
     public Button resetButton = null;
 
-    public GameObject gameOverPanel = null;
-    public GameObject gameClearPanel = null;
+    public GameOver gameOver = null;
+    public GameClear gameClear = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         if (instance != null)
         {
             Debug.Log("instance가 이미 있습니다.");
@@ -53,19 +53,26 @@ public class UIManager : MonoBehaviour
 
     public static void GameOver()
     {
-        instance.gameOverPanel.SetActive(true);
-        instance.Invoke("ResetScene", 3f);
+        instance.gameOver.gameObject.SetActive(true);
+        instance.gameOver.GameOverProcess();
     }
 
     public static void GameClear()
     {
-        instance.gameClearPanel.SetActive(true);
-        instance.Invoke("ResetScene", 3f);
+        instance.gameClear.gameObject.SetActive(true);
+        instance.gameClear.GameClearProcess();
     }
 
-    public void ResetScene()
+    public static void ResetScene()
     {
         DOTween.KillAll();
         SceneManager.LoadScene("StartScene");
+    }
+
+    public static void ReStartScene()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
     }
 }

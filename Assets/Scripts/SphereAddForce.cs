@@ -22,7 +22,7 @@ public class SphereAddForce : MonoBehaviour
     private float speed = 0f;
     public int ball = 20;
     public int clearCount = 9;
-    private int puzzleCount = 0;
+    public int puzzleCount { get; private set; } = 0;
     private bool isReset = false;
     private bool isclick = false;
     private bool isGround = true;
