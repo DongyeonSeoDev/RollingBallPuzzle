@@ -29,9 +29,12 @@ public class GameManager : Singleton<GameManager>
 
     public bool[] selectBall;
 
-    private SphereAddForce sphereAddForce;
+    public SphereAddForce sphereAddForce;
 
     public bool isMute = false;
+
+    [HideInInspector]
+    public TutorialManager tutorial;
 
     protected override void Awake()
     {
@@ -59,7 +62,14 @@ public class GameManager : Singleton<GameManager>
 
     public static void GameClear()
     {
-        Instance.Invoke("GameClearProcess", 1f);
+        if (Instance.tutorial != null)
+        {
+            Instance.tutorial.FillBlock();
+        }
+        else
+        {
+            Instance.Invoke("GameClearProcess", 1f);
+        }
     }
 
     private void GameClearProcess()

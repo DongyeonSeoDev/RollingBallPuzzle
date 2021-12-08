@@ -46,14 +46,26 @@ public class SphereAddForce : MonoBehaviour
             ResetPlayer();
         }
 
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (GameManager.Instance.tutorial == null)
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+        }
+        else if (!GameManager.Instance.tutorial.isMove)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
         {
             startMousePosition = Input.mousePosition;
             isclick = true;
             clickTime = Time.time;
         }
 
-        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonUp(0))
         {
             if (!isclick)
             {
@@ -68,7 +80,7 @@ public class SphereAddForce : MonoBehaviour
                 speed = Mathf.Clamp(Vector3.Distance(startMousePosition, endMousePosition) / 20f * timeSpeed, 3f, 50f);
                 force = (new Vector3(endMousePosition.x, 0f, endMousePosition.y) - new Vector3(startMousePosition.x, 0f, startMousePosition.y)).normalized;
 
-                myRigidbody.AddForce( force * -speed, ForceMode.Impulse);
+                myRigidbody.AddForce(force * -speed, ForceMode.Impulse);
             }
         }
     }
@@ -147,7 +159,14 @@ public class SphereAddForce : MonoBehaviour
 
         if (ball <= 0)
         {
-            UIManager.GameOver();
+            if (GameManager.Instance.tutorial == null)
+            {
+                UIManager.GameOver();
+            }
+            else
+            {
+                ball = 1;
+            }
         }
     }
 }
