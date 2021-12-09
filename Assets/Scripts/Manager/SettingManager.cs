@@ -34,8 +34,19 @@ public class SettingManager : MonoBehaviour
 
         tutorialButton.onClick.AddListener(() =>
         {
+            if (UIManager.isPause)
+            {
+                UIManager.isSetting = false;
+                UIManager.Paues();
+            }
+
             SceneManager.LoadScene("Tutorial");
             SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
         });
+    }
+
+    private void Start()
+    {
+        soundButton.image.sprite = isMute ? soundButtonSprites[0] : soundButtonSprites[1];
     }
 }

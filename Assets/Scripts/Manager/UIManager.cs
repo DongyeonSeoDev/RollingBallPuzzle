@@ -9,9 +9,16 @@ public class UIManager : Singleton<UIManager>
 
     public Text ballText = null;
     public Button resetButton = null;
+    public Button pauseButton = null;
 
     public GameOver gameOver = null;
     public GameClear gameClear = null;
+
+    public GameObject pauseUI = null;
+    public GameObject settingUI = null;
+
+    public  static bool isPause = false;
+    public static bool isSetting = false;
 
     protected override void Awake()
     {
@@ -36,6 +43,11 @@ public class UIManager : Singleton<UIManager>
         {
             GameManager.Instance.BallOut();
         });
+
+        pauseButton.onClick.AddListener(() =>
+        {
+            Paues();
+        });
     }
 
     private void Update()
@@ -44,6 +56,14 @@ public class UIManager : Singleton<UIManager>
         {
             ResetScene();
         }
+    }
+
+    public static void Paues()
+    {
+        isPause = !isPause;
+
+        Time.timeScale = isPause ? 0 : 1;
+        Instance.pauseUI.SetActive(isPause);
     }
 
     public static void SetBallText(string text)
@@ -74,5 +94,12 @@ public class UIManager : Singleton<UIManager>
         DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+    }
+
+    public static void Setting()
+    {
+        isSetting = !isSetting;
+
+        Instance.settingUI.SetActive(isSetting);
     }
 }

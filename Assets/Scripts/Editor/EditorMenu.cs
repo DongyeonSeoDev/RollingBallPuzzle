@@ -129,4 +129,10 @@ public class EditorMenu : MonoBehaviour
     {
         EditorSceneManager.OpenScene("Assets/Scenes/AddBallScene/AddBallStage5.unity");
     }
+
+    [MenuItem("RollingBallScene/AdditiveScenes/UIScene")]
+    static void EditorMenu_LoadAdditiveUIScene()
+    {
+        EditorSceneManager.OpenScene("Assets/Scenes/UIScene.unity", OpenSceneMode.Additive);
+    }
 }

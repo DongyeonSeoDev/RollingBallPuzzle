@@ -33,6 +33,8 @@ public class GameManager : Singleton<GameManager>
 
     public bool isMute = false;
 
+    public bool isTutorialPlay = false;
+
     [HideInInspector]
     public TutorialManager tutorial;
 

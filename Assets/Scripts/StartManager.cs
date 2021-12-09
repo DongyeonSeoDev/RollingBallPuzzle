@@ -33,6 +33,7 @@ public class StartManager : MonoBehaviour
     public Button settingButton = null;
 
     public GameObject settingPanel = null;
+    public GameObject tutorialPlay = null;
 
     private void Awake()
     {
@@ -143,6 +144,14 @@ public class StartManager : MonoBehaviour
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
         });
+    }
+
+    private void Start()
+    {
+        if (!GameManager.Instance.isTutorialPlay)
+        {
+            tutorialPlay.SetActive(true);
+        }
     }
 
     private void Update()
