@@ -22,6 +22,7 @@ public class TutorialPlay : MonoBehaviour
             gameObject.SetActive(false);
 
             GameManager.Instance.isTutorialPlay = true;
+            GameManager.Save();
         });
     }
 }

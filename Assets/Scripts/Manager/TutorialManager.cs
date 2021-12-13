@@ -70,6 +70,7 @@ public class TutorialManager : MonoBehaviour
                 case 7:
                     GameManager.Instance.tutorial = null;
                     GameManager.Instance.isTutorialPlay = true;
+                    GameManager.Save();
                     SceneManager.LoadScene("StartScene");
                     break;
             }

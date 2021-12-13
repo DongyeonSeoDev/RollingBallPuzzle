@@ -51,6 +51,17 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        SaveAndLoad.InitSaveAndLoad();
+        GameManager data = (GameManager)SaveAndLoad.Load();
+    }
+
+    public static void Save()
+    {
+        SaveAndLoad.Save((GameData)Instance);
+    }
+
     public void GameStart()
     {
         ball = Instantiate(balls[selectionBallNumber], isAddBallStage ? addBallStageStartPositions[selectionStageNumber] : ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
@@ -88,11 +99,13 @@ public class GameManager : Singleton<GameManager>
             if (Instance.selectionStageNumber < Instance.addBallStagePlay.Length - 1)
             {
                 Instance.addBallStagePlay[Instance.selectionStageNumber + 1] = true;
+                GameManager.Save();
             }
 
             if (Instance.selectionStageNumber < Instance.selectBall.Length)
             {
                 Instance.selectBall[Instance.selectionStageNumber] = true;
+                GameManager.Save();
             }
         }
         else
@@ -100,6 +113,7 @@ public class GameManager : Singleton<GameManager>
             if (Instance.selectionStageNumber < Instance.stagePlay.Length - 1)
             {
                 Instance.stagePlay[Instance.selectionStageNumber + 1] = true;
+                GameManager.Save();
             }
         }
     }
