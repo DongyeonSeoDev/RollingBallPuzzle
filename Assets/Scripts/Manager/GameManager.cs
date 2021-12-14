@@ -121,10 +121,10 @@ public class GameManager : Singleton<GameManager>
                 GameManager.Save();
             }
 
-            if (Instance.selectionStageNumber < Instance.selectBall.Length && !Instance.selectBall[Instance.selectionStageNumber])
+            if (Instance.selectionStageNumber + 2 < Instance.selectBall.Length && !Instance.selectBall[Instance.selectionStageNumber + 2])
             {
-                Instance.selectBall[Instance.selectionStageNumber] = true;
-                addBallNumber = Instance.selectionStageNumber;
+                Instance.selectBall[Instance.selectionStageNumber + 2] = true;
+                addBallNumber = Instance.selectionStageNumber + 2;
                 GameManager.Save();
             }
         }

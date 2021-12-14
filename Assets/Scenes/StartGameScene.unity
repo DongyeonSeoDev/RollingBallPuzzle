@@ -438,7 +438,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07f391589664f4e85904fa28802b4aa8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26364aaf1f64b40c1a047b0bacfbd10e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1119,6 +1119,8 @@ MonoBehaviour:
   - {fileID: 5761044889585073269, guid: c5b733940e60f76479b70ab97d54ac90, type: 3}
   - {fileID: 6918407462288435036, guid: 153f03ee4f123b44883b1608092b500c, type: 3}
   - {fileID: 370431478408731859, guid: deae66f202d9ff249abce0fb30d33de4, type: 3}
+  - {fileID: 977248355905187560, guid: 5434b9cae91376b4bb455f978f0107c1, type: 3}
+  - {fileID: 5607006934929458071, guid: b5aa66c5c2167424b9ed231de6a79788, type: 3}
   ballPositions:
   - {x: 0, y: 5.51, z: 25.77}
   - {x: 0, y: 5.51, z: 25.77}
@@ -1148,11 +1150,12 @@ MonoBehaviour:
   addBallStageClearCount: 0100000004000000090000001200000009000000
   addBallStagePlay: 0100000000
   isAddBallStage: 0
-  selectBall: 0100000000
+  selectBall: 01010000000000
   sphereAddForce: {fileID: 0}
   isMute: 0
   isTutorialPlay: 0
   tutorial: {fileID: 0}
+  addBallNumber: -1
 --- !u!4 &967765552
 Transform:
   m_ObjectHideFlags: 0

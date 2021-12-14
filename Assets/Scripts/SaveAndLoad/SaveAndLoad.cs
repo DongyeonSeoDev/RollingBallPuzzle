@@ -164,9 +164,10 @@ public static class SaveAndLoad
             defaultAddBallStagePlay[i] = false;
         }
 
-        bool[] defaultSelectBall = new bool[5];
+        bool[] defaultSelectBall = new bool[7];
 
         defaultSelectBall[0] = true;
+        defaultSelectBall[1] = true;
 
         for (int i = 1; i < 5; i++)
         {
