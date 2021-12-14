@@ -54,7 +54,7 @@ public class UIManager : Singleton<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ResetScene();
+            Paues();
         }
     }
 
@@ -87,6 +87,11 @@ public class UIManager : Singleton<UIManager>
     {
         DOTween.KillAll();
         SceneManager.LoadScene("StartScene");
+
+        if (GameManager.Instance.tutorial != null)
+        {
+            GameManager.Instance.tutorial = null;
+        }
     }
 
     public static void ReStartScene()

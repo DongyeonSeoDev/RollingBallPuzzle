@@ -10,9 +10,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour // 싱글톤을 관
     {
         get
         {
-            if (instance is null)
+            if (instance == null)
             {
-                Debug.Log(typeof(T) + "의 instance가 null 입니다.");
                 return null;
             }
 

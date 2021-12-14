@@ -8,6 +8,8 @@ public class StartGameSceneManager : MonoBehaviour
     public Button settingButton = null;
 
     public GameObject settingPanel = null;
+
+    public GameEnd gameEnd;
     
     private void Awake()
     {
@@ -20,5 +22,10 @@ public class StartGameSceneManager : MonoBehaviour
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
         });
+    }
+
+    private void Update()
+    {
+        GameManager.CheckEscape(gameEnd);
     }
 }

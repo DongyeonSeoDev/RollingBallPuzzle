@@ -33,6 +33,7 @@ public class SphereAddForce : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
         sc = GetComponent<SphereCollider>();
+
         startPosition = transform.position;
         startCameraPosition = Camera.main.transform.position;
     }

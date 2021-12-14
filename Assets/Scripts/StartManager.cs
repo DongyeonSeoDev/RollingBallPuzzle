@@ -19,6 +19,7 @@ public class StartManager : MonoBehaviour
 
     public Button ballChangeButton;
     public Button[] ballButtons;
+    public Button ballChangeCloseButton;
 
     public CanvasGroup ballChangeCanvasGroup;
 
@@ -34,6 +35,8 @@ public class StartManager : MonoBehaviour
 
     public GameObject settingPanel = null;
     public GameObject tutorialPlay = null;
+
+    public GameEnd gameEnd;
 
     private void Awake()
     {
@@ -115,11 +118,7 @@ public class StartManager : MonoBehaviour
 
                 BallUIManager.Instance.uiImage.sprite = BallUIManager.Instance.ballSprites[num];
 
-                DOTween.To(() => ballChangeCanvasGroup.alpha, x => ballChangeCanvasGroup.alpha = x, 0f, 0.5f).OnComplete(() =>
-                {
-                    ballChangeCanvasGroup.interactable = false;
-                    ballChangeCanvasGroup.blocksRaycasts = false;
-                });
+                BallClose();
             });
 
             ballButtons[num].interactable = GameManager.Instance.selectBall[num];
@@ -140,6 +139,11 @@ public class StartManager : MonoBehaviour
             ballChangeCanvasGroup.blocksRaycasts = true;
         });
 
+        ballChangeCloseButton.onClick.AddListener(() =>
+        {
+            BallClose();
+        });
+
         settingButton.onClick.AddListener(() =>
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
@@ -156,9 +160,17 @@ public class StartManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        GameManager.CheckEscape(gameEnd);
+    }
+
+    private void BallClose()
+    {
+        DOTween.To(() => ballChangeCanvasGroup.alpha, x => ballChangeCanvasGroup.alpha = x, 0f, 0.5f).OnComplete(() =>
         {
-            Application.Quit();
-        }
+            ballChangeCanvasGroup.interactable = false;
+            ballChangeCanvasGroup.blocksRaycasts = false;
+
+            isBallChange = false;
+        });
     }
 }

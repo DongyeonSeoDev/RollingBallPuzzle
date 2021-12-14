@@ -65,9 +65,10 @@ public class TutorialManager : MonoBehaviour
                     EndArrowMove();
                     break;
                 case 6:
+                case 7:
                     IsClickNext = true;
                     break;
-                case 7:
+                case 8:
                     GameManager.Instance.tutorial = null;
                     GameManager.Instance.isTutorialPlay = true;
                     GameManager.Save();

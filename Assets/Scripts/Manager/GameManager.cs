@@ -57,6 +57,14 @@ public class GameManager : Singleton<GameManager>
         GameManager data = (GameManager)SaveAndLoad.Load();
     }
 
+    public static void CheckEscape(GameEnd gameEnd)
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameEnd.ChangeUI();
+        }
+    }
+
     public static void Save()
     {
         SaveAndLoad.Save((GameData)Instance);
@@ -64,8 +72,17 @@ public class GameManager : Singleton<GameManager>
 
     public void GameStart()
     {
-        ball = Instantiate(balls[selectionBallNumber], isAddBallStage ? addBallStageStartPositions[selectionStageNumber] : ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
+        if (tutorial != null)
+        {
+            ball = Instantiate(balls[selectionBallNumber], ballPositions[0], Quaternion.Euler(-90f, 0f, 0f));
+        }
+        else
+        {
+            ball = Instantiate(balls[selectionBallNumber], isAddBallStage ? addBallStageStartPositions[selectionStageNumber] : ballPositions[selectionStageNumber], Quaternion.Euler(-90f, 0f, 0f));
+        }
+
         sphereAddForce = ball.GetComponent<SphereAddForce>();
+        sphereAddForce.ResetPlayer();
     }
 
     public void BallOut()
