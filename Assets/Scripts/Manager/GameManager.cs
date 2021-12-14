@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector]
     public TutorialManager tutorial;
 
+    public int addBallNumber = -1;
+
     protected override void Awake()
     {
         if (Instance != null)
@@ -119,9 +121,10 @@ public class GameManager : Singleton<GameManager>
                 GameManager.Save();
             }
 
-            if (Instance.selectionStageNumber < Instance.selectBall.Length)
+            if (Instance.selectionStageNumber < Instance.selectBall.Length && !Instance.selectBall[Instance.selectionStageNumber])
             {
                 Instance.selectBall[Instance.selectionStageNumber] = true;
+                addBallNumber = Instance.selectionStageNumber;
                 GameManager.Save();
             }
         }

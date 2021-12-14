@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject nextObject;
     public GameObject cover;
+    public GameObject pauseUI;
     public GameObject remainUI;
     public GameObject resetUI;
     public RectTransform arrow;
@@ -56,19 +57,22 @@ public class TutorialManager : MonoBehaviour
             switch (textCount)
             {
                 case 2:
-                    ShowResetUI();
+                    ShowRemainUI();
                     break;
                 case 3:
-                    BallMove();
+                    ShowResetUI();
                     break;
                 case 4:
+                    BallMove();
+                    break;
+                case 5:
                     EndArrowMove();
                     break;
-                case 6:
                 case 7:
+                case 8:
                     IsClickNext = true;
                     break;
-                case 8:
+                case 9:
                     GameManager.Instance.tutorial = null;
                     GameManager.Instance.isTutorialPlay = true;
                     GameManager.Save();
@@ -81,7 +85,7 @@ public class TutorialManager : MonoBehaviour
     public void TutorialStart()
     {
         TextChange();
-        ShowRemainUI();
+        ShowPauseUI();
 
         IsClickNext = true;
     }
@@ -92,10 +96,18 @@ public class TutorialManager : MonoBehaviour
         text.text = texts[textCount];
     }
 
-    private void ShowRemainUI()
+    private void ShowPauseUI()
     {
         cover.SetActive(true);
+        pauseUI.SetActive(true);
+    }
+
+    private void ShowRemainUI()
+    {
+        pauseUI.SetActive(false);
         remainUI.SetActive(true);
+
+        IsClickNext = true;
     }
 
     private void ShowResetUI()

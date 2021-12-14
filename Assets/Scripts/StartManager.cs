@@ -38,6 +38,10 @@ public class StartManager : MonoBehaviour
 
     public GameEnd gameEnd;
 
+    public GameObject addBallPanel;
+    public Image ballImage;
+    public Button checkButton;
+
     private void Awake()
     {
         if (GameManager.Instance == null)
@@ -148,6 +152,11 @@ public class StartManager : MonoBehaviour
         {
             settingPanel.SetActive(!settingPanel.activeSelf);
         });
+
+        checkButton.onClick.AddListener(() =>
+        {
+            addBallPanel.SetActive(false);
+        });
     }
 
     private void Start()
@@ -156,6 +165,8 @@ public class StartManager : MonoBehaviour
         {
             tutorialPlay.SetActive(true);
         }
+
+        AddBall();
     }
 
     private void Update()
@@ -172,5 +183,15 @@ public class StartManager : MonoBehaviour
 
             isBallChange = false;
         });
+    }
+
+    private void AddBall()
+    {
+        if (GameManager.Instance.addBallNumber >= 0)
+        {
+            addBallPanel.SetActive(true);
+            ballImage.sprite = BallUIManager.Instance.ballSprites[GameManager.Instance.addBallNumber];
+            GameManager.Instance.addBallNumber = -1;
+        }
     }
 }
