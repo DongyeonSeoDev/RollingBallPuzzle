@@ -910,10 +910,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1115,12 +1115,12 @@ MonoBehaviour:
   isDestroy: 0
   balls:
   - {fileID: 4014358710746781282, guid: 075a692bc1dca1f4aad8c574862a31b3, type: 3}
+  - {fileID: 5607006934929458071, guid: b5aa66c5c2167424b9ed231de6a79788, type: 3}
+  - {fileID: 977248355905187560, guid: 5434b9cae91376b4bb455f978f0107c1, type: 3}
   - {fileID: 4668518067148394629, guid: f62ec31b0878b1d40a24947a5e5353c6, type: 3}
   - {fileID: 5761044889585073269, guid: c5b733940e60f76479b70ab97d54ac90, type: 3}
   - {fileID: 6918407462288435036, guid: 153f03ee4f123b44883b1608092b500c, type: 3}
   - {fileID: 370431478408731859, guid: deae66f202d9ff249abce0fb30d33de4, type: 3}
-  - {fileID: 977248355905187560, guid: 5434b9cae91376b4bb455f978f0107c1, type: 3}
-  - {fileID: 5607006934929458071, guid: b5aa66c5c2167424b9ed231de6a79788, type: 3}
   ballPositions:
   - {x: 0, y: 5.51, z: 25.77}
   - {x: 0, y: 5.51, z: 25.77}

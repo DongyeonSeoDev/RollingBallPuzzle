@@ -47,19 +47,12 @@ public class SphereAddForce : MonoBehaviour
             ResetPlayer();
         }
 
-        if (GameManager.Instance.tutorial == null)
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-        }
-        else if (!GameManager.Instance.tutorial.isMove)
+        if (GameManager.Instance.tutorial != null && !GameManager.Instance.tutorial.isMove)
         {
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             startMousePosition = Input.mousePosition;
             isclick = true;

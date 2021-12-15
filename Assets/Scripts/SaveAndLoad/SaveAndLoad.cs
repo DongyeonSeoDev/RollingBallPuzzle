@@ -169,7 +169,7 @@ public static class SaveAndLoad
         defaultSelectBall[0] = true;
         defaultSelectBall[1] = true;
 
-        for (int i = 1; i < 5; i++)
+        for (int i = 2; i < 7; i++)
         {
             defaultSelectBall[i] = false;
         }
